@@ -58,8 +58,8 @@ Create an unprivileged user console tool to view and set laptop display backligh
 
 ## 4. Actionable Checklist
 Learning:
-- [ ] Skim D-Bus tutorial basics (messages, bus types).
-- [ ] Read `man org.freedesktop.login1` (focus on SetBrightness).
+- [x] Skim D-Bus tutorial basics (messages, bus types).
+- [x] Read `man org.freedesktop.login1` (focus on SetBrightness).
 - [ ] Skim Polkit `man polkit` & identify where actions are defined.
 
 Manual Experiments:
