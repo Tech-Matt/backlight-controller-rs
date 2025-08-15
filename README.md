@@ -116,6 +116,11 @@ That means I can use this API from a Rust binding to DBus to control the backlig
 If i do call the method with, let's say 1600 as a value, which is greater than my threshold (1500), the call fails, which is perfect. 
 We can handle that from the Rust code and notify the user. I tried also with floating point numbers and an error is returned, nice.
 
+## Implementation in Rust
+A minimal implementation in Rust with the DBus library worksss. Greatttt!!!
+Now it is time to make a console app that can run on my system first. Then in the future it is possible
+to think to generalize to other backlight vendors and systems, to make it portable.
+
 ## Next Steps
-- Go watch the Rust Dbus library and see how to implement it
 - Check some resources on how to properly handle and write a console app in Rust
+- Study a bit more about DBus because many things are still quite confusing to be honest.

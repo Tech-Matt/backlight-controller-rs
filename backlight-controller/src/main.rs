@@ -4,7 +4,7 @@ use std::time::Duration;
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Open a blocking connection on the DBus system bus
     let conn = Connection::new_system()?;
-    /* Remember that above the question mark operator is a way in Rust to implicitly 
+    /* Remember that the question mark operator is a way in Rust to implicitly 
        return the error type variant of the function it is called onto, if the value 
        returned is not an Ok variant. This of course means that the Error variant must
        be compatible by the Result error type of the main() function, but this is
