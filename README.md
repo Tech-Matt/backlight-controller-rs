@@ -1,5 +1,5 @@
 # backlight-controller-rs
-A simple backlight controller for Intel backlight in Rust
+A simple backlight controller for intel_backlight in Rust
 
 ## (Un)Technical Overview
 > I'll be extremely un-technical here, cause my knowledge on the topic is extremely poor
@@ -93,9 +93,29 @@ which indeed list the method `SetBrightness` if `busctl introspect` is run again
 Cool! that means if I can use DBus from Rust and call that method, I can change the
 brightness.
 
-## Next Steps
+## Testing the SetBrightness call
+Seeing `man org.freedesktop.login1` we can observe that the SetBrightness function has the following parameters:
+```
+SetBrightness(in  s subsystem,
+              in  s name,
+              in  u brightness);
+```
+Given the call `busctl call SERVICE OBJECT INTERFACE METHOD` let's try to execute:
+```
+busctl call org.freedesktop.login1 
+            /org/freedesktop/login1/session/1
+            org.freedesktop.login1.Session 
+            SetBrightness ssu "backlight" "intel_backlight" 100
+```
+> Note `ssu` is the format of the method parameters, in this case it means that the parameter require 2 strings and an unsigned integer
 
-- Test `busctl call` to call the `SetBrightness` method.
-- Test also wrong inputs to see what happens
+It works!!! I tried to insert some values like 100, 1500, and it does change the backlight (AND) without asking for root privileges, superb.
+That means I can use this API from a Rust binding to DBus to control the backlight and make a good looking app.
+
+### Testing Wrong Inputs
+If i do call the method with, let's say 1600 as a value, which is greater than my threshold (1500), the call fails, which is perfect. 
+We can handle that from the Rust code and notify the user. I tried also with floating point numbers and an error is returned, nice.
+
+## Next Steps
 - Go watch the Rust Dbus library and see how to implement it
 - Check some resources on how to properly handle and write a console app in Rust
