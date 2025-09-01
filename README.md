@@ -16,7 +16,7 @@ interface org.freedesktop.login1.Session
 SetBrightness(in s subsystem, in s name, in u brightness);
 ```
 
-## So apparently Polkit really is awesome
+## So apparently Polkit really is awesome (Unneded)
 Polkit provides a way for **unpriviliged** users to ask an *Authority*, if they can perform a **privileged** action through a system process.
 Polkit does that by checking a set of rules. Allowed, or not allowed actions that can be performed by the user are to be found in 
 `/usr/share/polkit-1/actions`.
