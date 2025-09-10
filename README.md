@@ -1,6 +1,6 @@
 # bright-rs
 A simple backlight controller for intel_backlight in Rust. This code makes use of DBus system bus in Linux.
-Through the bus a user can make some calls like `SetBrightness` which usually require root, and thus 
+Through the bus a user can make some calls like `SetBrightness` which bypass the requirenent of root access, and thus 
 modify the brightness. The code can then be used from a *HotKey Daemon* Like **sxhkd** to bind the command to keyboard shortcuts (a setup guide is provided below). 
 
 ## Command line options
