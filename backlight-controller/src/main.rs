@@ -10,8 +10,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = env::args().collect();
 
     /* Expected Cli Args are:
-     * script
-     * brightness: u32
+     * script_name (@index 0)
+     * brightness: u32 (@index 1)
      */
     let brightness_str = args.get(1).unwrap(); // ! MAY PANIC
     let brightness: u32 = brightness_str.parse().unwrap();
