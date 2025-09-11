@@ -1,4 +1,4 @@
-/target/*
+bright-rs/target/*
 **/*.rs.bk
 Cargo.lock
 .vscode/
